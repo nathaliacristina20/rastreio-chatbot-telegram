@@ -11,6 +11,7 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
+    "date-fns": "^2.14.0",
     "dotenv": "^8.2.0",
     "node-telegram-bot-api": "^0.50.0",
     "random-js": "^2.1.0",
@@ -19,5 +20,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }  
+  }
 }
