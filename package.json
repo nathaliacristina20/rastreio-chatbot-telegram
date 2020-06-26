@@ -2,7 +2,7 @@
   "name": "chatbot-telegram",
   "version": "1.0.0",
   "description": "Chatbot for tracking packages in telegram",
-  "repository": "https://github.com/nathaliacristina20/bot-telegram",
+  "repository": "https://github.com/nathaliacristina20/rastreio-chatbot-telegram",
   "author": "Nathalia Cristina Gomes Oliveira <nathaliacristina20@hotmail.com>",
   "private": false,
   "main": "./src/index.js",
