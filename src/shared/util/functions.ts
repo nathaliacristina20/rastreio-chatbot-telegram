@@ -1,3 +1,3 @@
-export function runRegex(pattern: any, phase: string) {
+export function runRegex(pattern: RegExp, phase: string) {
     return pattern.exec(phase);
 }

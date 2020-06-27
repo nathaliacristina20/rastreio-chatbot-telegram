@@ -1,58 +1,39 @@
 import app from "./app";
 
-import { messages } from "./shared/messages";
-import { utterances } from "./shared/utterances";
-import { regex } from "./shared/regex";
-
 import { MessageFromChat } from "./shared/interfaces/i.chat";
-import { runRegex } from "./shared/util/functions";
+import IntentsRunService from "./app/services/IntentsRunService";
 
-import TrackingController from "./app/controllers/TrackingController";
-
-let trackingMode = false;
-
-app.on("message", (msg: MessageFromChat) => {
+app.on("message", async (msg: MessageFromChat) => {
   
   const chatId = msg.chat.id;
   const client_response = msg.text.toString().toLowerCase();
 
-  if (
-    runRegex(regex.COMMANDS.START, client_response) ||
-    utterances.HI.includes(client_response)
-  ) {
-    changeTrackingMode(false);
+  const match = await IntentsRunService.execute(client_response);
 
-    const message = messages.WELCOME.replace('#name#', msg.from.first_name);
+  if (typeof match === "string"){
 
-    app.sendMessage(
-      chatId, message,
-      {
-        reply_markup: {
-          keyboard: [[messages.TRACKING_BUTTON]],
-        },
-      }
-    );
+    const message = match.replace('{name}', msg.from.first_name);
+    app.sendMessage(chatId, message);
 
-  } else if (utterances.BYE.includes(client_response)) {
-    changeTrackingMode(false);
-    app.sendMessage(chatId, messages.BYE);
-  } else if (client_response === messages.TRACKING_BUTTON.toLowerCase()) {
-    changeTrackingMode(true);
+  } else 
 
-    app.sendMessage(
-      chatId,
-      "Certo! Digite seu código para rastreiar sua encomenda."
-    );
-  } else if (trackingMode === true) {
-      
-    const tracking_response = TrackingController.index(client_response);    
-    app.sendMessage(chatId, tracking_response);
+  if (match.answers){
     
-  } else {
-    app.sendMessage(chatId, messages.NOT_EXPECTED);
-  }
-});
+    if (match.buttons && match.buttons.length >= 0){
 
-function changeTrackingMode(status: boolean) {
-  trackingMode = status;
-}
+        app.sendMessage(
+            chatId, match.answers[0],
+            {
+              reply_markup: {
+                keyboard: [match.buttons],
+              },
+            }
+          );
+
+    } else {
+        app.sendMessage(chatId, match.answers[0]);
+    }
+
+  }
+
+});
