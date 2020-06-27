@@ -13,7 +13,7 @@ app.on("message", async (msg: MessageFromChat) => {
   if (typeof match === "string"){
 
     const message = match.replace('{name}', msg.from.first_name);
-    app.sendMessage(chatId, message);
+    app.sendMessage(chatId, message, { parse_mode : 'HTML'});
 
   } else 
 
