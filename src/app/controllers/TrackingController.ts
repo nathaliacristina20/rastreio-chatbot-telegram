@@ -18,21 +18,19 @@ class TrackingController {
 
                     const tracking_length = (tracking[0].tracks?.length || 0) - 1;
 
-                    let message;
+                    let message = "";
 
                     if (tracking[0].tracks) {
-                        const trackingDate = format(
+                        const trackingDate = tracking[0].tracks[tracking_length].trackedAt ? format(
                             tracking[0].tracks[tracking_length].trackedAt,
-                            "dd 'de' MMMM 'de' yyyy 'às' HH:mm",
-                            { locale: ptBR }
-                        );
+                            "dd'/'MM'/'yyyy HH:mm"
+                        ) : null;
 
-                        message = `${trackingDate}\n`;
-
-                        message += `${tracking[0].tracks[tracking_length].locale}\n`;
-                        message += `${tracking[0].tracks[tracking_length].status}\n`;
-                        message += `${tracking[0].tracks[tracking_length].observation}`;
-
+                        message += tracking[0].tracks[tracking_length].status ? `<b>${tracking[0].tracks[tracking_length].status}</b>\n` : '';
+                        message += tracking[0].tracks[tracking_length].observation ? `${tracking[0].tracks[tracking_length].observation}\n` : '';
+                        message += tracking[0].tracks[tracking_length].locale ? `${tracking[0].tracks[tracking_length].locale.toUpperCase()}\n` : '';
+                        message += trackingDate ? `${trackingDate}\n` : '';
+                        
                         return message;
                     }
                 }
