@@ -6,9 +6,10 @@
   "author": "Nathalia Cristina Gomes Oliveira <nathaliacristina20@hotmail.com>",
   "private": false,
   "main": "./src/index.js",
-  "license": "MIT",
-  "scripts": {
-    "dev": "ts-node-dev src/index.ts"
+  "license": "MIT",  "scripts": {
+    "build": "tsc", 
+    "dev": "ts-node-dev src/index.ts",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "date-fns": "^2.14.0",
