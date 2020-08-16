@@ -16,8 +16,7 @@
     "dotenv": "^8.2.0",
     "node-telegram-bot-api": "^0.50.0",
     "random-js": "^2.1.0",
-    "rastrojs": "^1.1.0",
-    "tracking-correios": "^1.2.2"
+    "rastrojs": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4",
