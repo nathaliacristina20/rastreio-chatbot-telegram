@@ -9,7 +9,7 @@ RastreiaGram: Um chatbot do Telegram para rastrear suas encomendas.
 ## :nail_care: Preview
 
 <p align="center">
-  <img width="300" alt="Preview do RastreiaGram em funcionamento" src=".github/preview.gif" align="center">
+  <img width="300" alt="Preview do RastreiaGram em funcionamento" src=".github/preview.jpeg" align="center">
 </p>
 
 ## :computer: Sobre o projeto
