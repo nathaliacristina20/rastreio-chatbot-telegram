@@ -1,5 +1,9 @@
+<h1 align="center">
+    RastreiaGram
+</h1>
+
 <h3 align="center">
-RastreiaGram: Um chatbot do Telegram para rastrear suas encomendas.
+    Um chatbot do Telegram para rastrear suas encomendas.
 </h3>
 
 <p align="center">
