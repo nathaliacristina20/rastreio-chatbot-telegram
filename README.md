@@ -19,13 +19,13 @@ Basta enviar seu código de rastreio que ele trará o último status de atualiza
 
 ## :rocket: Tecnologias
  
-- Node
-- Typescript
-- Dotenv
-- Node Telegram Bot Api
-- Date-fns
-- Rastrojs
-- Randomjs
+- [Node](https://nodejs.org/en/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Node Telegram Bot Api](https://github.com/yagop/node-telegram-bot-api)
+- [Rastrojs](https://github.com/talesluna/rastrojs)
+- [Date-fns](https://date-fns.org/)
+- [Random-js](https://github.com/ckknight/random-js)
+- [Dotenv](https://github.com/motdotla/dotenv)
 
 ## :books: Guia de instalação e execução
 
